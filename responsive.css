@@ -1,0 +1,25 @@
+@media screen and (max-width: 48rem) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header .subtitle {
+        font-size: .9rem;
+    }
+
+    .card-header {
+        font-size: 1.3rem;
+    }
+
+    .btn-magic {
+        font-size: .8rem;
+    }
+
+    .code-grid {
+        flex-direction: column;
+    }
+
+    .code-card {
+        width: 100%;
+    }
+}
