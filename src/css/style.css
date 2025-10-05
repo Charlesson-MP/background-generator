@@ -10,7 +10,7 @@ body {
 
 .header {
     margin-bottom: 3rem;
-    z-index: 99;
+    z-index: 999;
     position: relative;
     max-width: 43.75rem;
     margin: 0 auto 2rem;
@@ -87,6 +87,7 @@ body {
 
 .preview-card {
     display: none;
+    height: 100%;
 }
 
 .code-grid {
