@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const txtArea = document.getElementById('description');
     const htmlCode = document.getElementById('html-code');
     const cssCode = document.getElementById('css-code');
+    const preview = document.getElementById('preview-section');
     form.addEventListener('submit', async function(evt) {
         evt.preventDefault();
         
@@ -47,18 +48,31 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             const data = await response.json();
+            htmlCode.textContent = data.code || '';
+            cssCode.textContent = data.style || '';
 
-            const parsed = JSON.parse(data);
-            console.log('olá');
-            console.log("Data", parsed);
-            console.log("Parsed", parsed.code);
+            preview.style.display = 'block';
+            preview.innerHTML = data.code || '';
 
-            htmlCode.textContent = data.code;
+            let styleTag = document.getElementById('dynamic-style');
+            if(styleTag) styleTag.remove();
+
+            if(data.style) {
+                styleTag = document.createElement('style');
+                styleTag.id = 'dynamic-style';
+
+                styleTag.textContent = data.style;
+                document.head.appendChild(styleTag);
+            }
             
-        }catch {
-
+        }catch(error) {
+            console.error('Erro ao gerar background:', error);
+            htmlCode.textContent = "Não foi possível gerar o código html, tente novamente."
+            cssCode.textContent = "Não foi possível gerar o código css, tente novamente."
+            preview.innerHTML = '';
         }finally {
-
+            setLoading(false);
+            txtArea.value = '';
         }
     })
 });
