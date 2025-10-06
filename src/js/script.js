@@ -12,10 +12,15 @@
 function setLoading(isLoading) {
     const btnSpan = document.querySelector('.btn-generate');
 
+    const load = document.createElement('span');
+    load.classList.add('loading');
+
     if(isLoading) {
-        btnSpan.textContent = 'Gerando background...';
+        btnSpan.textContent = 'Gerando background';
+        btnSpan.appendChild(load);
     }else {
         btnSpan.textContent = 'Gerar background';
+        load.remove();
     }
 }
 
