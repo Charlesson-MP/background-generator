@@ -18,6 +18,7 @@ body {
     background-color: #00000069;
     border-radius: 1rem;
     padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, .2);
 }
 
 .header h1 {
@@ -119,7 +120,7 @@ body {
 }
 
 .code-card {
-    background-color: #21242a;
+    background-color: #00000069;
     border: 1px solid rgba(255, 255, 255, .2);
     padding: 1.5rem;
     width: 50%;
